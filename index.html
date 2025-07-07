@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -153,7 +153,7 @@
 </head>
 <body>
 
-<audio id="audio-romantico" src="musica.mp3" autoplay loop></audio>
+<audio id="audio-romantico" src="musica.mp3" loop></audio>
 
 <div class="carta-container" id="cartaContainer">
   <div class="carta" onclick="abrirCarta(this)">
@@ -180,6 +180,8 @@
 <script>
   function abrirCarta(carta) {
     carta.classList.add('abierta');
+    const audio = document.getElementById("audio-romantico");
+    audio.play(); // Reproducir música cuando se hace clic
     setTimeout(() => {
       document.getElementById("cartaContainer").style.display = "none";
       iniciarCuentaRegresiva();
@@ -208,8 +210,6 @@
     const finalMessage = document.getElementById("final-message");
     finalMessage.style.display = "flex";
 
-    document.getElementById("musica.mp3").play();
-
     for (let i = 0; i < 30; i++) {
       crearCorazon();
     }
@@ -228,7 +228,7 @@
     }, 6000);
   }
 
-  // Generar corazones infinitos desde el inicio
+  // Corazones flotantes infinitos desde el inicio
   setInterval(() => {
     crearCorazon();
   }, 300);
